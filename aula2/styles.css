@@ -1,0 +1,32 @@
+td, th {
+  border: 1px solid gainsboro;
+  text-align: center;
+}
+
+.no-border {
+  border: none
+}
+
+.color1 {  background-color: #7ebff2; }
+.color2 {  background-color: #4a87ec; }
+.color3 {  background-color: #7073ec; }
+
+table {
+  border-collapse: collapse;
+}
+
+.fontWhite {
+  color: white;
+}
+
+*{
+  font-weight: 400;
+}
+
+.left {
+  text-align: left;
+}
+
+th {
+  font-weight: bold;
+}
