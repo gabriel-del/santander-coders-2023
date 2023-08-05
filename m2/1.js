@@ -5,21 +5,19 @@ const askSalario = async () => {
   rl.close()
   return Number(salario)}
   
-getSalario = async (salario) => {
+const getSalario = async (salario) => {
   while (typeof salario != "number" || salario < 0 || isNaN(salario)) salario = await askSalario()
   return salario}
 
 (async () => {
-  // a = await askSalario()
-  // console.log( "a: " + a)
-salario = await getSalario()
-console.log("salario: " + salario)
-
+let salario = null
+salario = await getSalario(salario)
+show(salario)
 })()
 
 
 
-aumento = (salario) => {
+const aumento = (salario) => {
   if (typeof salario !== "number") return NaN
   if(salario < 0) return undefined
   if (salario <= 1500) return 20 
@@ -28,15 +26,13 @@ aumento = (salario) => {
   if (salario > 2000) return 5  
 }
 
-show = (salario) => {
+const show = (salario) => {
   const valorAumento = (salario*aumento(salario)/100).toFixed(2)  
-  console.log(`Salário antes do reajuste: R$${salario.toFixed(2)}`);
-  console.log(`Percentual de aumento aplicado: ${aumento(salario)}%`);
+  console.log(`Salário antes do reajuste: R$${salario.toFixed(2)}`)
+  console.log(`Percentual de aumento aplicado: ${aumento(salario)}%`)
   console.log(`Valor do aumento: R$${valorAumento}`);
-  console.log(`Novo salário, após o aumento: R$${salario+valorAumento}`);
+  console.log(`Novo salário, após o aumento: R$${salario+valorAumento}`)
 }
 
-// const salario = 1000
-// show(salario)
-// getSalario()
+
 
