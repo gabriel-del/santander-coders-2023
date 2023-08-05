@@ -1,6 +1,6 @@
 
 // async function askSalario(){
-  askSalario = async () => {
+const askSalario = async () => {
   const rl = require('readline').createInterface({input: process.stdin, output: process.stdout});
   const salario = await new Promise(salario => rl.question("Informe o seu salário: ", salario))
   rl.close()
@@ -8,14 +8,13 @@
 
 }
 
-async function main(){
+(async () => {
   a = await askSalario()
   console.log( "a: " + a)
 
-}
+})()
 
-main()
-
+// main()
 
 
 // function getSalario(){
