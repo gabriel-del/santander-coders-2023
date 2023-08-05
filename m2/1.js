@@ -1,26 +1,22 @@
 
-// async function askSalario(){
 const askSalario = async () => {
   const rl = require('readline').createInterface({input: process.stdin, output: process.stdout});
   const salario = await new Promise(salario => rl.question("Informe o seu salário: ", salario))
   rl.close()
-  return salario
-
-}
+  return Number(salario)}
+  
+getSalario = async (salario) => {
+  while (typeof salario != "number" || salario < 0 || isNaN(salario)) salario = await askSalario()
+  return salario}
 
 (async () => {
-  a = await askSalario()
-  console.log( "a: " + a)
+  // a = await askSalario()
+  // console.log( "a: " + a)
+salario = await getSalario()
+console.log("salario: " + salario)
 
 })()
 
-// main()
-
-
-// function getSalario(){
-// salario = askSalario()
-// return salario
-// }
 
 
 aumento = (salario) => {
