@@ -1,6 +1,5 @@
 const lista = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-let pares=[]
-let impares=[]
+let pares=[], impares=[]
 
 for (let i=0;  i < lista.length; i++) {
   if(lista[i] % 2 === 0 ){ pares.push(lista[i]) } 
@@ -11,6 +10,14 @@ for (let i=0;  i < lista.length; i++) {
 //   pares: lista.filter(n => n % 2 === 0),
 //   impares: lista.filter(n => n % 2 === 1)
 // })
+
+// console.log({
+//   pares: lista.filter(n => !(n.toString(2)&1)),
+//   impares: lista.filter(n => !!(n.toString(2)&1))
+// })
+
+// lista.forEach(n => !(n.toString(2)&1) ? pares.push(n) : impares.push(n))
+// console.log({ pares,  impares })
 
 
 // EXERCÍCIO
@@ -53,3 +60,5 @@ while(dezenas.length < 6){
 }
 console.log(dezenas)
 
+
+// Array(6).fill().forEach(_ => console.log(Math.floor(Math.random() * 60) + 1)) 
