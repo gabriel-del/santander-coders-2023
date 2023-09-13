@@ -21,3 +21,10 @@ img {
   width: 200px;
   height: 200px;
 }
+
+
+input:invalid {
+  border: 3px solid red;
+}
+
+
