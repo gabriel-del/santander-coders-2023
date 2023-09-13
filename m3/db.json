@@ -1,0 +1,12 @@
+{
+  "produtos": [
+    {
+      "nome": "laranja",
+      "preco": 20
+    },
+    {
+      "nome": "maça",
+      "preco": 21
+    }
+  ]
+}
