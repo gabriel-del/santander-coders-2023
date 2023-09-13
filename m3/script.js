@@ -24,6 +24,6 @@ class Cart {
   static printList() {
     list.innerHTML = ''
     this.list().forEach(({nome, quantidade, preco}) => list.innerHTML += `
-    <p><a>${quantidade} ${nome} ${preco} R\$ (${preco * quantidade} R\$)</a></p>`)}
+    <p><a>${quantidade} - ${nome} - R\$ ${preco} | R\$ ${preco * quantidade} </a></p>`)}
 }
 
