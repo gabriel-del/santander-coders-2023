@@ -1,0 +1,21 @@
+body {
+  background-color: #121212;
+  color: #eee;
+}
+
+h1 {
+  height: 10vh;
+  text-align: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 20%;
+  background-color: #444;
+  padding: 10px;
+  margin: auto;
+  height: 70vh;
+}
+
