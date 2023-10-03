@@ -1,7 +1,5 @@
-
 const input = document.querySelector('input')
 const result = document.querySelectorAll('input')[1]
-
 
 document.querySelectorAll('button').forEach(button => {
   button.addEventListener('click', () => {
@@ -18,3 +16,6 @@ document.querySelectorAll('button').forEach(button => {
 
   if (/\*|-|\+|\/|\.|AC|Del/g.test(button.innerText)) {button.style.color = "#FD6A00"}
 })
+
+
+
