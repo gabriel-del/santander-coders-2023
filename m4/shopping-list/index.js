@@ -7,11 +7,12 @@ async function getData() {
 }
 
 btnGet.addEventListener("click", async () => console.log(await getData()))
+btnSet.addEventListener("click", async () => console.log(await setData()))
 
 
 
 
-async function postandoDados(dado) {
+async function setData(dado) {
   const res = await fetch(
     'https://xtwxbtwsfgzjgreqawla.supabase.co/rest/v1/products',
     {
@@ -24,14 +25,15 @@ async function postandoDados(dado) {
       },
       body: JSON.stringify(dado),
     }
-  );
+  )
+  return 'foi'
 }
 
 let dado = {
-  // id: 4,
-  name: "biscoito",
-  price: 500
-  // created_at: '2023-10-03T00:56:25.802884+00:00'
+  id: 8,
+  name: "bolacha",
+  price: 500,
+  created_at: '2023-10-03T00:56:25.802884+00:00'
 }
 
 
