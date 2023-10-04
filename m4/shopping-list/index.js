@@ -22,8 +22,7 @@ const supabase = createClient('https://xtwxbtwsfgzjgreqawla.supabase.co', apiKey
 
 
 async function getData2(){
-let { data: products, error } = await supabase.from('products').select('*')
-return products
+return (await supabase.from('products').select('*')).data
 }
 
 btnGet.addEventListener("click", async () => console.log(await getData2()))
