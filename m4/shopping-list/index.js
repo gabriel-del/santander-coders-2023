@@ -8,11 +8,22 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 const getData = async (table) =>  (await supabase.from(table).select('*')).data
 const setData = async data =>  (await supabase.from('products').insert(data)).status
 
+const main = document.querySelector('main')
+const total = document.querySelector('#total p')
+const list = document.querySelector('#list p')
+
 document.addEventListener('DOMContentLoaded', async () => {
   let db = JSON.parse(localStorage.getItem('db') || '{}')
   // db.products = await getData('products')
   localStorage.setItem('db', JSON.stringify(db))
   console.log(db)
+  db.products.forEach(({name, price, url}) => main.innerHTML += `
+<div>
+  <img src="${url}"></img>
+  <p><b>${name} R$ ${price} </b></p>
+  <label>Quantidade:
+  <input type="number" placeholder="0" min="0" max="100" title="0-99"/>
+</div>`)
 
 })
 
@@ -46,17 +57,9 @@ async function signOut() {
 }
 
 // import db from './db.json' assert {type: 'json'}
-const main = document.querySelector('main')
-const total = document.querySelector('#total p')
-const list = document.querySelector('#list p')
 
-// db.produtos.forEach(({nome, preco, url}) => main.innerHTML += `
-// <div>
-//   <img src="${url}"></img>
-//   <p><b>${nome} R$ ${preco} </b></p>
-//   <label>Quantidade:
-//   <input type="number" placeholder="0" min="0" max="100" title="0-99"/>
-// </div>`)
+
+
 
 document.querySelectorAll('input').forEach(item => item.addEventListener('blur', () => {
   document.querySelectorAll('main > div').forEach((item,i) => db.produtos[i].quantidade = item.querySelector('input').value || 0)
