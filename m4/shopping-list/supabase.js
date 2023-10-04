@@ -5,28 +5,7 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 
-const getData = async (table) =>  (await supabase.from(table).select('*')).data
-const setData = async data =>  (await supabase.from('products').insert(data)).status
-
-const main = document.querySelector('article')
-const total = document.querySelector('#total p')
-const list = document.querySelector('#list p')
-
-document.addEventListener('DOMContentLoaded', async () => {
-  let db = JSON.parse(localStorage.getItem('db') || '{}')
-  // db.products = await getData('products')
-  localStorage.setItem('db', JSON.stringify(db))
-  db.products.forEach(({name, price, url}) => main.innerHTML += `
-<div>
-  <img src="${url}"></img>
-  <p><b>${name} R$ ${price} </b></p>
-  <label>Quantidade:
-  <input type="number" placeholder="0" min="0" max="100" title="0-99"/>
-</div>`)
-
-})
-
-async function sign(what) {
+export async function sign(what) {
   let user = {email: inputName.value, password: inputPwd.value}, res
   switch (what) {
     case 'in':  res = await supabase.auth.signInWithPassword(user) ;break;
@@ -40,6 +19,7 @@ async function sign(what) {
       spanEmail.innerText = res.data.user.email
       btnSignIn.style.display = 'none'
       btnSignUp.style.display = 'none'
+      btnSignOut.style.display = 'inline'
       inputName.style.display = 'none'
       inputPwd.style.display = 'none'
     } else {
@@ -47,6 +27,7 @@ async function sign(what) {
       spanEmail.innerText = ''
       btnSignIn.style.display = 'inline'
       btnSignUp.style.display = 'inline'
+      btnSignOut.style.display = 'none'
       inputName.style.display = 'inline'
       inputPwd.style.display = 'inline'
     }
@@ -57,21 +38,13 @@ btnSignIn.addEventListener('click', async () => await sign('in'))
 btnSignUp.addEventListener('click', () => sign('up'))
 btnSignOut.addEventListener('click', () => sign('out'))
 
+const getData = async (table) =>  (await supabase.from(table).select('*')).data
+const setData = async data =>  (await supabase.from('products').insert(data)).status
 
-
-document.querySelectorAll('input').forEach(item => item.addEventListener('blur', () => {
-  document.querySelectorAll('main > div').forEach((item,i) => db.produtos[i].quantidade = item.querySelector('input').value || 0)
-  Cart.printTotal()
-  Cart.printList()
-}))
-
-class Cart {
-  static total() { return db.produtos.reduce((acc,item) => item.preco*item.quantidade + acc,0)}
-  static printTotal() { total.innerHTML = this.total()}
-  static list() {return db.produtos.filter(({quantidade}) => quantidade > 0)}
-  static printList() {
-    list.innerHTML = ''
-    this.list().forEach(({nome, quantidade, preco}) => list.innerHTML += `
-    <p><a>${quantidade} - ${nome} - R\$ ${preco} | R\$ ${preco * quantidade} </a></p>`)}
+export async function getDb() {
+  let db = JSON.parse(localStorage.getItem('db') || '{}')
+  // db.products = await getData('products')
+  localStorage.setItem('db', JSON.stringify(db))
+  return db
 }
-
+document.addEventListener('DOMContentLoaded', getDb)

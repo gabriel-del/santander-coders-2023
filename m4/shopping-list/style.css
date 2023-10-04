@@ -64,5 +64,8 @@ aside * {
   margin: 20px;
 }
 
+#btnSignOut{
+  display: none;
+}
 
 
