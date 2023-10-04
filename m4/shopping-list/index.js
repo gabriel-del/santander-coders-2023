@@ -4,8 +4,17 @@ const supabaseUrl = 'https://xtwxbtwsfgzjgreqawla.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0d3hidHdzZmd6amdyZXFhd2xhIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTYxNDU2OTgsImV4cCI6MjAxMTcyMTY5OH0.SYOZEtkpU8sdd8dqIhJLaRZfOG5J50WB-khWUkO2I6w'
 const supabase = createClient(supabaseUrl, supabaseKey)
 
-const getData = async () =>  (await supabase.from('products').select('*')).data
+
+const getData = async (table) =>  (await supabase.from(table).select('*')).data
 const setData = async data =>  (await supabase.from('products').insert(data)).status
+
+document.addEventListener('DOMContentLoaded', async () => {
+  let db = JSON.parse(localStorage.getItem('db') || '{}')
+  // db.products = await getData('products')
+  localStorage.setItem('db', JSON.stringify(db))
+  console.log(db)
+
+})
 
 btnGet.addEventListener("click", async () => console.log(await getData()))
 btnSet.addEventListener("click", async () => console.log(await setData({
@@ -36,18 +45,18 @@ async function signOut() {
   const { error } = await supabase.auth.signOut()
 }
 
-import db from './db.json' assert {type: 'json'}
+// import db from './db.json' assert {type: 'json'}
 const main = document.querySelector('main')
 const total = document.querySelector('#total p')
 const list = document.querySelector('#list p')
 
-db.produtos.forEach(({nome, preco, url}) => main.innerHTML += `
-<div>
-  <img src="${url}"></img>
-  <p><b>${nome} R$ ${preco} </b></p>
-  <label>Quantidade:
-  <input type="number" placeholder="0" min="0" max="100" title="0-99"/>
-</div>`)
+// db.produtos.forEach(({nome, preco, url}) => main.innerHTML += `
+// <div>
+//   <img src="${url}"></img>
+//   <p><b>${nome} R$ ${preco} </b></p>
+//   <label>Quantidade:
+//   <input type="number" placeholder="0" min="0" max="100" title="0-99"/>
+// </div>`)
 
 document.querySelectorAll('input').forEach(item => item.addEventListener('blur', () => {
   document.querySelectorAll('main > div').forEach((item,i) => db.produtos[i].quantidade = item.querySelector('input').value || 0)
