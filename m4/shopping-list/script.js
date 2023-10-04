@@ -1,23 +1,20 @@
 import * as supabase from './supabase.js'
 
 
-const main = document.querySelector('article')
+const article = document.querySelector('article')
 const total = document.querySelector('#total p')
 const list = document.querySelector('#list p')
 
-
-
 document.addEventListener('DOMContentLoaded', async () => {
-  let db = await supabase.getDb()
-  console.log(db)
-  db.products.forEach(({name, price, url}) => main.innerHTML += `
-<div>
-  <img src="${url}"></img>
-  <p><b>${name} R$ ${price} </b></p>
-  <label>Quantidade:
-  <input type="number" placeholder="0" min="0" max="100" title="0-99"/>
-</div>`)
-
+  let div, db = await supabase.getDb()
+  db.products.forEach(({name, price, url}) => {
+    div = document.createElement('div')
+    div.append(
+      Object.assign(document.createElement('img'), {src: url }),
+      Object.assign(document.createElement('p'), {innerText: `${name} R$ ${price}` }),
+      Object.assign(document.createElement('input'), {type: 'number', placeholder: '0', min: '0', max: '100', title: '0-99' }))
+    article.appendChild(div)
+  })
 })
 
 document.querySelectorAll('input').forEach(item => item.addEventListener('blur', () => {
