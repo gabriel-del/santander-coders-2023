@@ -1,20 +1,12 @@
-const ApiKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0d3hidHdzZmd6amdyZXFhd2xhIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTYxNDU2OTgsImV4cCI6MjAxMTcyMTY5OH0.SYOZEtkpU8sdd8dqIhJLaRZfOG5J50WB-khWUkO2I6w";
+const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0d3hidHdzZmd6amdyZXFhd2xhIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTYxNDU2OTgsImV4cCI6MjAxMTcyMTY5OH0.SYOZEtkpU8sdd8dqIhJLaRZfOG5J50WB-khWUkO2I6w"
 
-async function buscandoDados() {
-  const res = await fetch(
-    'https://xtwxbtwsfgzjgreqawla.supabase.co/rest/v1/products',
-    {
-      method: "GET",
-      headers: {
-        apikey: ApiKey,
-        authorization: `Bearer ${ApiKey}`,
-      },
-    }
-  );
-  const data = await res.json();
-  console.log(data);
+const apiUrl = 'https://xtwxbtwsfgzjgreqawla.supabase.co/rest/v1/products'
+
+async function getData() {
+  return await (await fetch(apiUrl, { method: "GET", headers: {apikey: apiKey, authorization: `Bearer ${apiKey}` }})).json()
 }
+
+btnGet.addEventListener("click", async () => console.log(await getData()))
 
 
 
@@ -27,8 +19,8 @@ async function postandoDados(dado) {
       headers: {
         "Content-Type": "application/json",
         Prefer: "return=minimal",
-        apikey: ApiKey,
-        authorization: `Bearer ${ApiKey}`,
+        apikey: apiKey,
+        authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify(dado),
     }
@@ -42,7 +34,4 @@ let dado = {
   // created_at: '2023-10-03T00:56:25.802884+00:00'
 }
 
-postandoDados(dado)
-console.log("123")
-buscandoDados();
 
