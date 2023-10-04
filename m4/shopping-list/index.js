@@ -13,5 +13,29 @@ btnSet.addEventListener("click", async () => console.log(await setData({
   price: document.querySelector('#inputPrice').value
 })))
 
+btnSignIn.addEventListener('click', signIn)
+btnSignUp.addEventListener('click', signUp)
+btnSignOut.addEventListener('click', signOut)
 
+async function signUp() {
+  const {data, error } = await supabase.auth.signUp({
+  email: 'admin@email.com',
+  password: 'admin123',
+  })
+  console.log(data)
+  console.log(error.message)
+}
+
+async function signIn() {
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email: 'example@email.com',
+    password: 'example-password',
+  })
+  console.log(data)
+  return data
+}
+
+async function signOut() {
+  const { error } = await supabase.auth.signOut()
+}
 
