@@ -1,0 +1,34 @@
+body {
+  background-color: #000000EE;
+  color: #E1E1E1;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  gap: 25px;
+}
+
+main > div {
+  border: 2px solid #bbb;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 5px #A6F750;
+  text-align: center;
+  font-size: larger;
+  text-transform: capitalize;
+}
+
+#list {
+  text-transform: capitalize;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+input:invalid {
+  border: 3px solid red;
+}
