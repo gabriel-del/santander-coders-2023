@@ -8,7 +8,7 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 const getData = async (table) =>  (await supabase.from(table).select('*')).data
 const setData = async data =>  (await supabase.from('products').insert(data)).status
 
-const main = document.querySelector('main')
+const main = document.querySelector('article')
 const total = document.querySelector('#total p')
 const list = document.querySelector('#list p')
 
@@ -27,11 +27,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 })
 
-btnGet.addEventListener("click", async () => console.log(await getData()))
-btnSet.addEventListener("click", async () => console.log(await setData({
-  name: document.querySelector('#inputName').value,
-  price: document.querySelector('#inputPrice').value
-})))
 
 btnSignIn.addEventListener('click', signIn)
 btnSignUp.addEventListener('click', signUp)
@@ -55,11 +50,6 @@ async function signIn() {
 async function signOut() {
   const { error } = await supabase.auth.signOut()
 }
-
-// import db from './db.json' assert {type: 'json'}
-
-
-
 
 document.querySelectorAll('input').forEach(item => item.addEventListener('blur', () => {
   document.querySelectorAll('main > div').forEach((item,i) => db.produtos[i].quantidade = item.querySelector('input').value || 0)

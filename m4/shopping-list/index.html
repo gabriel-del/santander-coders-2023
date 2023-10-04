@@ -3,32 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Shopping List</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <head>
+    <header>
+      <h2>Shopping List</h2>
       <div>
-        <h1>Products</h1>
+        <input id='inputName' type="text">
+        <input type="number" id="inputPrice">
+        <button id="btnSignIn">SignIn</button>
+        <button id="btnSignUp">SignUp</button>
+        <button id="btnSignOut">SignOut</button>
       </div>
-      <div id="list">
-        <h2>Lista: </h2>
-        <p></p>
-      </div>
-      <div id="total">
-        <h3>Total: </h3>
-        <p></p>
-      </div>
-    </head>
-  
-  <main></main>
-    <input id='inputName' type="text">
-    <input type="number" id="inputPrice">
-    <button id="btnGet">Get</button>
-    <button id="btnSet">Set</button>
-    <button id="btnSignIn">SignIn</button>
-    <button id="btnSignUp">SignUp</button>
-    <button id="btnSignOut">SignOut</button>
+    </header>
+    <main>
+      <article></article>
+      <aside>
+        <h1>Cart</h1>
+        <div id="list">
+          <h2>Lista: </h2><p></p>
+        </div>
+        <div id="total">
+          <h3>Total: </h3><p></p>
+        </div>
+        <button id="btnSend">Fazer Pedido</button>
+      </aside>   
+  </main>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./index.js" type="module"></script>
   </body>
