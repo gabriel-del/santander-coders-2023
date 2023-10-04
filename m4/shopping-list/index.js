@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   let db = JSON.parse(localStorage.getItem('db') || '{}')
   // db.products = await getData('products')
   localStorage.setItem('db', JSON.stringify(db))
-  console.log(db)
   db.products.forEach(({name, price, url}) => main.innerHTML += `
 <div>
   <img src="${url}"></img>
@@ -27,29 +26,38 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 })
 
-
-btnSignIn.addEventListener('click', signIn)
-btnSignUp.addEventListener('click', signUp)
-btnSignOut.addEventListener('click', signOut)
-
-async function signUp() {
-  const {data, error } = await supabase.auth.signUp({
-  email: 'admin@email.com',
-  password: 'admin123',
-  })
-  console.log(data)
-  console.log(error.message)
+async function sign(what) {
+  let user = {email: inputName.value, password: inputPwd.value}, res
+  switch (what) {
+    case 'in':  res = await supabase.auth.signInWithPassword(user) ;break;
+    case 'up':  res = await supabase.auth.signUp(user) ;break;
+    case 'out': res = await supabase.auth.signOut()
+  }
+  if(res.error) { console.log(`Failed: ${res?.data}`)
+  } else {
+    if (what === 'in' || what === 'up') {
+      console.log(`Success: ${res?.data.user.email}`)
+      spanEmail.innerText = res.data.user.email
+      btnSignIn.style.display = 'none'
+      btnSignUp.style.display = 'none'
+      inputName.style.display = 'none'
+      inputPwd.style.display = 'none'
+    } else {
+      console.log("Logged Out")
+      spanEmail.innerText = ''
+      btnSignIn.style.display = 'inline'
+      btnSignUp.style.display = 'inline'
+      inputName.style.display = 'inline'
+      inputPwd.style.display = 'inline'
+    }
+  }
+  return res
 }
+btnSignIn.addEventListener('click', async () => await sign('in'))
+btnSignUp.addEventListener('click', () => sign('up'))
+btnSignOut.addEventListener('click', () => sign('out'))
 
-async function signIn() {
-  const { data, error } = await supabase.auth.signInWithPassword({ email: 'example@email.com', password: 'example-password'})
-  console.log(data)
-  return data
-}
 
-async function signOut() {
-  const { error } = await supabase.auth.signOut()
-}
 
 document.querySelectorAll('input').forEach(item => item.addEventListener('blur', () => {
   document.querySelectorAll('main > div').forEach((item,i) => db.produtos[i].quantidade = item.querySelector('input').value || 0)
