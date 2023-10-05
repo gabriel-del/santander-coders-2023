@@ -18,12 +18,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   article.querySelectorAll('input').forEach(item => item.addEventListener('input', () => {
     article.querySelectorAll('div').forEach((item,i) => db.products[i].quantity = item.querySelector('input').value || 0)
-    total.innerHTML = db.products.reduce((acc,item) => item.price*item.quantity + acc,0)
+    db.cart = db.products.filter(({quantity}) => quantity > 0)
+    db.total =  db.cart.reduce((acc,item) => item.price*item.quantity + acc,0)
+    console.log(db)
+    total.innerHTML = db.total
     list.innerHTML = ''
-    db.products.filter(({quantity}) => quantity > 0).forEach(({name, quantity, price}) => list.innerHTML += `
-    <p><a>${quantity} - ${name} - R\$ ${price} | R\$ ${price * quantity} </a></p>`)
-
-
+    db.cart.forEach(({name, quantity, price}) => 
+      list.appendChild(document.createElement('p')).appendChild(document.createElement('a'))
+      .innerText = `${quantity} - ${name} - R\$ ${price} | R\$ ${price * quantity}`
+    )
   }))
 })
 
