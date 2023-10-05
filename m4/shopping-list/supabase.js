@@ -43,8 +43,9 @@ const setData = async data =>  (await supabase.from('products').insert(data)).st
 
 export async function getDb() {
   let db = JSON.parse(localStorage.getItem('db') || '{}')
-  // db.products = await getData('products')
+  db.products = await getData('products')
   localStorage.setItem('db', JSON.stringify(db))
   return db
 }
 document.addEventListener('DOMContentLoaded', getDb)
+btnSend.addEventListener('click', () => console.info("Não implementado"))

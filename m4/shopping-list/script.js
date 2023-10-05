@@ -1,6 +1,5 @@
 import * as supabase from './supabase.js'
 
-
 const article = document.querySelector('article')
 const total = document.querySelector('#total p')
 const list = document.querySelector('#list p')
