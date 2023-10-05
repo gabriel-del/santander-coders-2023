@@ -17,7 +17,8 @@ main {
   display: flex;
 }
 aside {
-  min-width: 300px;
+  min-width: 15%;
+  max-width: 30%;
   /* max-width: 500px; */
 }
 article {

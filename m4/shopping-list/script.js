@@ -15,15 +15,17 @@ document.addEventListener('DOMContentLoaded', async () => {
       Object.assign(document.createElement('input'), {type: 'number', placeholder: '0', min: '0', max: '100', title: '0-99' }))
     article.appendChild(div)
   })
-})
 
-document.querySelectorAll('input').forEach(item => item.addEventListener('blur', () => {
-  document.querySelectorAll('main > div').forEach((item,i) => db.produtos[i].quantidade = item.querySelector('input').value || 0)
-  total.innerHTML = db.produtos.reduce((acc,item) => item.preco*item.quantidade + acc,0)
-  list.innerHTML = ''
-  db.produtos.filter(({quantidade}) => quantidade > 0).forEach(({nome, quantidade, preco}) => list.innerHTML += `
-  <p><a>${quantidade} - ${nome} - R\$ ${preco} | R\$ ${preco * quantidade} </a></p>`)
-}))
+  article.querySelectorAll('input').forEach(item => item.addEventListener('input', () => {
+    article.querySelectorAll('div').forEach((item,i) => db.products[i].quantity = item.querySelector('input').value || 0)
+    total.innerHTML = db.products.reduce((acc,item) => item.price*item.quantity + acc,0)
+    list.innerHTML = ''
+    db.products.filter(({quantity}) => quantity > 0).forEach(({name, quantity, price}) => list.innerHTML += `
+    <p><a>${quantity} - ${name} - R\$ ${price} | R\$ ${price * quantity} </a></p>`)
+
+
+  }))
+})
 
 
 
