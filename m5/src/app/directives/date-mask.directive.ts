@@ -6,7 +6,7 @@ import { Directive, HostListener } from '@angular/core';
 export class DateMaskDirective {
   @HostListener('input', ['$event'])
   onInput(event: Event) {
-    debugger;
+    // debugger;
     const input = event.target as HTMLInputElement;
     const value = input.value;
 
