@@ -18,7 +18,6 @@ import type {Task} from 'src/models/task.model'
   </div>
 </div>
 `,
-  styles: [` `],
 })
 export class AppComponent {
   @ViewChild('myDiv') detailDiv!: ElementRef
