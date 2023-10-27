@@ -4,7 +4,6 @@ export class Task {
   date: string | Date
   status: string
   tags?: string[]
-
   constructor(title = '', description = '', date = '', status = '', tags = []) {
     this.title = title
     this.description = description

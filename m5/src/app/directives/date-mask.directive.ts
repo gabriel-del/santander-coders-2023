@@ -1,4 +1,4 @@
-import { Directive, HostListener } from '@angular/core'
+import {Directive, HostListener} from '@angular/core'
 
 @Directive({
   selector: '[appDateMask]',
@@ -24,6 +24,5 @@ export class DateMaskDirective {
       )}/${apenasNumeros.slice(4, 8)}`
     }
   }
-
   constructor() {}
 }

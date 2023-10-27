@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core'
+import {Component, EventEmitter, Output} from '@angular/core'
 
 @Component({
   selector: 'app-task-filtro',
@@ -22,9 +22,7 @@ import { Component, EventEmitter, Output } from '@angular/core'
 })
 export class Filtro {
   @Output() onChangeFiltro = new EventEmitter()
-
   filtro: string = 'all'
-
   handleSelect() {
     this.onChangeFiltro.emit(this.filtro)
   }

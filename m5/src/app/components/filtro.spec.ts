@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
+import {ComponentFixture, TestBed} from '@angular/core/testing'
 
-import { TaskFiltroComponent } from './filtro'
+import {TaskFiltroComponent} from './filtro'
 
 describe('taskFiltroComponent', () => {
   let component: TaskFiltroComponent

@@ -1,4 +1,4 @@
-import type { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms'
+import type {AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms'
 
 export function dateLessThanValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -10,7 +10,7 @@ export function dateLessThanValidator(): ValidatorFn {
     const currentDate = new Date()
 
     if (inputDate < currentDate)
-      return { dateLessThan: true }
+      return {dateLessThan: true}
 
     return null
   }

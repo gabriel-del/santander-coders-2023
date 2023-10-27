@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core'
-import { NgForm } from '@angular/forms'
-import { Task } from 'src/models/task.model'
+import {Component, EventEmitter, Output} from '@angular/core'
+import {NgForm} from '@angular/forms'
+import {Task} from 'src/models/task.model'
 
 @Component({
   selector: 'app-task-form',
@@ -79,9 +79,7 @@ import { Task } from 'src/models/task.model'
 })
 export class Form {
   @Output() addTask = new EventEmitter()
-
   public newTask = new Task()
-
   submitTask(form: NgForm) {
     console.log('chamou')
     if (!form.valid)
