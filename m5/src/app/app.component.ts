@@ -4,7 +4,8 @@ import type {Task} from 'src/models/task.model'
 
 @Component({
   selector: 'app-root',
-  template: `<div class="container pb-5">
+  template: `
+  <div class="container pb-5">
   <!-- <app-task-form (addTask)="onAddTask($event)"></app-task-form> -->
   <app-task-form-reactive (addTask)="onAddTask($event)"></app-task-form-reactive>
   <app-task-list [tasks]="listTask" (handleTask)="handleTask($event)"></app-task-list>
@@ -17,24 +18,8 @@ import type {Task} from 'src/models/task.model'
     </div>
   </div>
 </div>
-
 `,
-  styles: [`
-    .blue {
-    color: blue;
-}
-
-.red {
-    color: red;
-}
-
-.bg-green {
-    background-color: green;
-}
-
-color-red {
-    color: red;
-}`],
+  styles: [``]
 })
 export class AppComponent {
   @ViewChild('myDiv') detailDiv!: ElementRef
@@ -43,17 +28,11 @@ export class AppComponent {
     {date: new Date(), description: 'description01', status: 'trabalhando', title: 'title02'},
     {date: new Date(), description: 'description01', status: 'finalizado', title: 'title03'},
   ]
-  get toDoStatus() {
-    return this.listTask.filter(item => item.status === 'toDo')
-  }
+  get toDoStatus() { return this.listTask.filter(item => item.status === 'toDo') }
   // listTask: Array<IListTask> = [];
   selectedTask: Task | null = null
-  ngOnInit() {
-    console.log(this.selectedTask)
-  }
-  onAddTask(task: Task) {
-    this.listTask.push(task)
-  }
+  ngOnInit() { console.log(this.selectedTask) }
+  onAddTask(task: Task) { this.listTask.push(task) }
   handleTask(task: Task) {
     this.selectedTask = task
     setTimeout(() => {
@@ -63,7 +42,5 @@ export class AppComponent {
       })
     }, 500)
   }
-  fecharDetalhes() {
-    this.selectedTask = null
-  }
+  fecharDetalhes() { this.selectedTask = null }
 }
