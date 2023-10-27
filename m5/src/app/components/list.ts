@@ -83,11 +83,6 @@ export class List implements OnInit {
       return;
     }
 
-    this.tasksFiltradas = this.tasks.filter((item) => {
-      if (item.status === filtro) {
-        return item;
-      }
-      return;
-    });
+    this.tasksFiltradas = this.tasks.filter((item) => item.status === filtro);
   }
 }
