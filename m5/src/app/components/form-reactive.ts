@@ -48,7 +48,7 @@ import {Task} from 'src/models/task.model'
 })
 export class FormReactive implements OnInit {
   @Input() task: Task | null = {
-    date: '27/05/1995',
+    date: '01/01/2030',
     description: 'Descrição',
     title: 'Título',
     status: 'toDo',
