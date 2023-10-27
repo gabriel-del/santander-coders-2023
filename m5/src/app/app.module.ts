@@ -1,18 +1,19 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
-import { AppComponent } from './app.component';
-import { Form } from './components/form';
-import { List } from './components/list';
-import { Detail } from './components/detail';
-import { Filtro } from './components/filtro';
-import { FormReactive } from './components/form-reactive';
+import { AppComponent } from './app.component'
+import { Form } from './components/form'
+import { List } from './components/list'
+import { Detail } from './components/detail'
+import { Filtro } from './components/filtro'
+import { FormReactive } from './components/form-reactive'
 
-import { DateGreaterThanTodayDirective } from './directives/date-greater-than-today.directive';
-import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
-import { DateMaskDirective } from './directives/date-mask.directive';
+import { DateGreaterThanTodayDirective } from './directives/date-greater-than-today.directive'
+import { CurrencyFormatPipe } from './pipes/currency-format.pipe'
+import { DateMaskDirective } from './directives/date-mask.directive'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,15 +24,15 @@ import { DateMaskDirective } from './directives/date-mask.directive';
     DateGreaterThanTodayDirective,
     Filtro,
     FormReactive,
-    DateMaskDirective
+    DateMaskDirective,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

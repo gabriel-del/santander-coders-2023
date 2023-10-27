@@ -1,5 +1,6 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Task } from 'src/models/task.model';
+import type { ElementRef } from '@angular/core'
+import { Component, ViewChild } from '@angular/core'
+import type { Task } from 'src/models/task.model'
 
 @Component({
   selector: 'app-root',
@@ -34,52 +35,53 @@ import { Task } from 'src/models/task.model';
     color: blue;
 }
 
-.red { 
+.red {
     color: red;
 }
 
-.bg-green { 
+.bg-green {
     background-color: green;
 }
 
-color-red { 
-    color: red; 
-}`]})
+color-red {
+    color: red;
+}`],
+})
 export class AppComponent {
-  @ViewChild('myDiv') detailDiv!: ElementRef;
+  @ViewChild('myDiv') detailDiv!: ElementRef
 
   listTask: Task[] = [
-    { date: new Date(),  description: 'description01', status: 'toDo', title: 'title01'},
-    { date: new Date(),  description: 'description01', status: 'trabalhando', title: 'title02'},
-    { date: new Date(),  description: 'description01', status: 'finalizado', title: 'title03'},
-  ];
-
+    { date: new Date(), description: 'description01', status: 'toDo', title: 'title01' },
+    { date: new Date(), description: 'description01', status: 'trabalhando', title: 'title02' },
+    { date: new Date(), description: 'description01', status: 'finalizado', title: 'title03' },
+  ]
 
   get toDoStatus() {
     return this.listTask.filter(item => item.status === 'toDo')
   }
+
   // listTask: Array<IListTask> = [];
-  selectedTask: Task | null = null;
+  selectedTask: Task | null = null
 
   ngOnInit() {
-    console.log(this.selectedTask);
+    console.log(this.selectedTask)
   }
 
   onAddTask(task: Task) {
-    this.listTask.push(task);
+    this.listTask.push(task)
   }
 
   handleTask(task: Task) {
-    this.selectedTask = task;
+    this.selectedTask = task
     setTimeout(() => {
       this.detailDiv.nativeElement.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
-      });
-    }, 500);
+      })
+    }, 500)
   }
 
   fecharDetalhes() {
-    this.selectedTask = null;
+    this.selectedTask = null
   }
 }
