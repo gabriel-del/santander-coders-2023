@@ -6,23 +6,12 @@ import type {Task} from 'src/models/task.model'
   selector: 'app-root',
   template: `<div class="container pb-5">
   <!-- <app-task-form (addTask)="onAddTask($event)"></app-task-form> -->
-  <app-task-form-reactive
-    (addTask)="onAddTask($event)"
-  ></app-task-form-reactive>
-
-  <app-task-list
-    [tasks]="listTask"
-    (handleTask)="handleTask($event)"
-  ></app-task-list>
-
+  <app-task-form-reactive (addTask)="onAddTask($event)"></app-task-form-reactive>
+  <app-task-list [tasks]="listTask" (handleTask)="handleTask($event)"></app-task-list>
   <div #myDiv>
     <div *ngIf="selectedTask">
-      <app-task-detail
-        [task]="selectedTask"
-        (closeDetail)="fecharDetalhes()"
-      ></app-task-detail>
+      <app-task-detail [task]="selectedTask" (closeDetail)="fecharDetalhes()"></app-task-detail>
     </div>
-
     <div *ngFor="let items of toDoStatus">
       {{items.title}}
     </div>

@@ -15,6 +15,7 @@ export default antfu(
       'promise/param-names': 'off',
       'no-new': 0,
       'style/lines-between-class-members': ['error', 'never'],
+      'ts/indent': ['error', 2],
     },
   },
 )
