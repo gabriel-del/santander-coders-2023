@@ -1,18 +1,17 @@
-import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import type { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms'
 
 export function dateLessThanValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
-    console.log(control.value);
+    console.log(control.value)
     // debugger;
-    const [dd, mm, yyyy] = control.value.split('/');
-    const inputDate = new Date(yyyy, mm, dd);
+    const [dd, mm, yyyy] = control.value.split('/')
+    const inputDate = new Date(yyyy, mm, dd)
 
-    const currentDate = new Date();
+    const currentDate = new Date()
 
-    if (inputDate < currentDate) {
-      return { dateLessThan: true };
-    }
+    if (inputDate < currentDate)
+      return { dateLessThan: true }
 
-    return null;
-  };
+    return null
+  }
 }
