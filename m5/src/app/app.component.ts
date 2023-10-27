@@ -8,6 +8,7 @@ import type {Task} from 'src/models/task.model'
   <div class="container pb-5">
   <app-task-form-reactive (addTask)="onAddTask($event)"></app-task-form-reactive>
   <app-task-list  [tasks]="listTask" (handleTask)="handleTask($event)"></app-task-list>
+  <app-log [tasks]="listTask" (handleTask)="handleTask($event)"></app-log>
   <div #myDiv>
     <div *ngIf="selectedTask">
       <app-task-detail [task]="selectedTask" (closeDetail)="fecharDetalhes()"></app-task-detail>
