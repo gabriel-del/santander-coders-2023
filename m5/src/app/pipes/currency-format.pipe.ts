@@ -9,7 +9,6 @@ interface IProps {
 @Pipe({name: 'currencyFormat'})
 export class CurrencyFormatPipe implements PipeTransform {
   transform(value: string, args: IProps): unknown {
-    console.log(args)
     return Number(value).toLocaleString('pt-BR', args)
   }
 }

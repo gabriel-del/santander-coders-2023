@@ -2,7 +2,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing'
 
 import {Filtro} from './filtro'
 
-describe('taskFiltroComponent', () => {
+describe('filtro', () => {
   let component: Filtro
   let fixture: ComponentFixture<Filtro>
 

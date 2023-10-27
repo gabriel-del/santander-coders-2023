@@ -2,7 +2,6 @@ import type {AbstractControl, ValidationErrors, ValidatorFn} from '@angular/form
 
 export function dateLessThanValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
-    console.log(control.value)
     const [dd, mm, yyyy] = control.value.split('/')
     const inputDate = new Date(yyyy, mm, dd)
     const currentDate = new Date()

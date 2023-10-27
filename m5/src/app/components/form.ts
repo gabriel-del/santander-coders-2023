@@ -41,7 +41,6 @@ export class Form {
   @Output() addTask = new EventEmitter()
   public newTask = new Task()
   submitTask(form: NgForm) {
-    console.log('chamou')
     if (!form.valid) return
     this.addTask.emit(this.newTask)
     this.newTask = new Task()

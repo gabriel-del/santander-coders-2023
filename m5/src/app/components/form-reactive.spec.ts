@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing'
 import {FormReactive} from './form-reactive'
 
-describe('taskFormReactiveComponent', () => {
+describe('formReactive', () => {
   let component: FormReactive
   let fixture: ComponentFixture<FormReactive>
   beforeEach(() => {

@@ -28,7 +28,7 @@ export class AppComponent {
   ]
   get toDoStatus() {return this.listTask.filter(item => item.status === 'toDo')}
   selectedTask: Task | null = null
-  ngOnInit() {console.log(this.selectedTask)}
+  ngOnInit() {}
   onAddTask(task: Task) {this.listTask.push(task)}
   handleTask(task: Task) {
     this.selectedTask = task

@@ -69,7 +69,6 @@ export class FormReactive implements OnInit {
   ngOnInit() {
     this.formTask.patchValue({...this.task})
     this.task?.tags?.forEach(item => this.addTag(item))
-    console.log(this.formTask.value)
   }
   submitTask() {
     this.addTask.emit(this.formTask.value)
