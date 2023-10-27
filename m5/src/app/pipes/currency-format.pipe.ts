@@ -1,9 +1,10 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import type { PipeTransform } from '@angular/core'
+import { Pipe } from '@angular/core'
 
 interface IProps {
-  style: string;
-  currency: string;
-  minimumFractionDigits: number;
+  style: string
+  currency: string
+  minimumFractionDigits: number
 }
 
 @Pipe({
@@ -11,10 +12,10 @@ interface IProps {
 })
 export class CurrencyFormatPipe implements PipeTransform {
   transform(value: string, args: IProps): unknown {
-    console.log(args);
+    console.log(args)
 
-    const formattedValue = Number(value).toLocaleString('pt-BR', args);
+    const formattedValue = Number(value).toLocaleString('pt-BR', args)
 
-    return formattedValue;
+    return formattedValue
   }
 }

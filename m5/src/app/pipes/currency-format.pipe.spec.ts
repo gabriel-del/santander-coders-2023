@@ -1,8 +1,8 @@
-import { CurrencyFormatPipe } from './currency-format.pipe';
+import { CurrencyFormatPipe } from './currency-format.pipe'
 
-describe('CurrencyFormatPipe', () => {
+describe('currencyFormatPipe', () => {
   it('create an instance', () => {
-    const pipe = new CurrencyFormatPipe();
-    expect(pipe).toBeTruthy();
-  });
-});
+    const pipe = new CurrencyFormatPipe()
+    expect(pipe).toBeTruthy()
+  })
+})
