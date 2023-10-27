@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TaskFormReactiveComponent } from './task-form-reactive.component';
+import { TaskFormReactiveComponent } from './form-reactive';
 
 describe('TaskFormReactiveComponent', () => {
   let component: TaskFormReactiveComponent;
