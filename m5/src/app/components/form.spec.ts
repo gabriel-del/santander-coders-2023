@@ -1,16 +1,14 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing'
-import {TaskFormComponent} from './form'
+import {Form} from './form'
 
 describe('taskFormComponent', () => {
-  let component: TaskFormComponent
-  let fixture: ComponentFixture<TaskFormComponent>
-
+  let component: Form
+  let fixture: ComponentFixture<Form>
   beforeEach(() => {
-    TestBed.configureTestingModule({declarations: [TaskFormComponent]})
-    fixture = TestBed.createComponent(TaskFormComponent)
+    TestBed.configureTestingModule({declarations: [Form]})
+    fixture = TestBed.createComponent(Form)
     component = fixture.componentInstance
     fixture.detectChanges()
   })
-
   it('should create', () => expect(component).toBeTruthy())
 })

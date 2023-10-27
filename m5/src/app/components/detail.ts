@@ -3,11 +3,12 @@ import {Task} from 'src/models/task.model'
 
 @Component({
   selector: 'app-task-detail',
-  template: `<div class="mt-5 border p-3">
+  template: `
+<div class="mt-5 border p-3">
   <div class="d-flex flex-shrink-0 align-items-center justify-content-between">
     <h2>Detalhes da Tarefa</h2>
     <button (click)="close()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
-   </div>
+  </div>
   <p><strong>Título:</strong> {{ task.title }}</p>
   <p><strong>Descrição:</strong> {{ task.description }}</p>
   <p><strong>Data de Vencimento:</strong> {{ task.date | date : "dd/MM/yyyy" }}</p>
