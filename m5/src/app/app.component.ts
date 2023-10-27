@@ -18,7 +18,7 @@ import type {Task} from 'src/models/task.model'
   </div>
 </div>
 `,
-  styles: [` `]
+  styles: [` `],
 })
 export class AppComponent {
   @ViewChild('myDiv') detailDiv!: ElementRef
@@ -27,14 +27,13 @@ export class AppComponent {
     {date: new Date(), description: 'description01', status: 'trabalhando', title: 'title02'},
     {date: new Date(), description: 'description01', status: 'finalizado', title: 'title03'},
   ]
-  get toDoStatus() { return this.listTask.filter(item => item.status === 'toDo') }
-  // listTask: Array<IListTask> = [];
+  get toDoStatus() {return this.listTask.filter(item => item.status === 'toDo')}
   selectedTask: Task | null = null
-  ngOnInit() { console.log(this.selectedTask) }
-  onAddTask(task: Task) { this.listTask.push(task) }
+  ngOnInit() {console.log(this.selectedTask)}
+  onAddTask(task: Task) {this.listTask.push(task)}
   handleTask(task: Task) {
     this.selectedTask = task
-    setTimeout(() => this.detailDiv.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 500)
+    setTimeout(() => this.detailDiv.nativeElement.scrollIntoView({behavior: 'smooth', block: 'start'}), 500)
   }
-  fecharDetalhes() { this.selectedTask = null }
+  fecharDetalhes() {this.selectedTask = null}
 }

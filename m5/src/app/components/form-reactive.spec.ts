@@ -7,7 +7,7 @@ describe('taskFormReactiveComponent', () => {
   let fixture: ComponentFixture<TaskFormReactiveComponent>
 
   beforeEach(() => {
-    TestBed.configureTestingModule({declarations: [TaskFormReactiveComponent] })
+    TestBed.configureTestingModule({declarations: [TaskFormReactiveComponent]})
     fixture = TestBed.createComponent(TaskFormReactiveComponent)
     component = fixture.componentInstance
     fixture.detectChanges()

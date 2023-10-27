@@ -1,4 +1,5 @@
 import {Directive, HostListener} from '@angular/core'
+
 @Directive({
   selector: '[appDateMask]',
 })
@@ -12,8 +13,8 @@ export class DateMaskDirective {
       input.value = `${apenasNumeros.slice(0, 2)}/${apenasNumeros.slice(2)}`
       return
     }
-    if (apenasNumeros.length >= 5) 
-      input.value = `${apenasNumeros.slice(0, 2)}/${apenasNumeros.slice( 2, 4, )}/${apenasNumeros.slice(4, 8)}`
+    if (apenasNumeros.length >= 5)
+      input.value = `${apenasNumeros.slice(0, 2)}/${apenasNumeros.slice(2, 4)}/${apenasNumeros.slice(4, 8)}`
   }
   constructor() {}
 }

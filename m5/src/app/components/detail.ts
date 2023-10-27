@@ -18,5 +18,5 @@ import {Task} from 'src/models/task.model'
 export class Detail {
   @Input() task = new Task()
   @Output() closeDetail = new EventEmitter()
-  close() { this.closeDetail.emit() }
+  close() {this.closeDetail.emit()}
 }

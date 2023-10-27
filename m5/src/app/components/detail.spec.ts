@@ -7,11 +7,11 @@ describe('taskDetailComponent', () => {
   let fixture: ComponentFixture<Detail>
 
   beforeEach(() => {
-    TestBed.configureTestingModule({ declarations: [Detail], })
+    TestBed.configureTestingModule({declarations: [Detail]})
     fixture = TestBed.createComponent(Detail)
     component = fixture.componentInstance
     fixture.detectChanges()
   })
 
-  it('should create', () => expect(component).toBeTruthy() )
+  it('should create', () => expect(component).toBeTruthy())
 })

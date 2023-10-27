@@ -7,11 +7,11 @@ describe('taskFormComponent', () => {
   let fixture: ComponentFixture<TaskFormComponent>
 
   beforeEach(() => {
-    TestBed.configureTestingModule({ declarations: [TaskFormComponent] })
+    TestBed.configureTestingModule({declarations: [TaskFormComponent]})
     fixture = TestBed.createComponent(TaskFormComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
   })
 
-  it('should create', () =>  expect(component).toBeTruthy() )
+  it('should create', () => expect(component).toBeTruthy())
 })

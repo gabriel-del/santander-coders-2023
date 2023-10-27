@@ -76,13 +76,15 @@ export class FormReactive implements OnInit {
   }
   constructor(private formBuilder: FormBuilder) {}
   ngOnInit() {
-this.formTask.patchValue({...this.task})
+    this.formTask.patchValue({...this.task})
     this.task?.tags?.forEach(item => this.addTag(item))
-console.log(this.formTask.value)
+    console.log(this.formTask.value)
   }
   submitTask() {
     this.addTask.emit(this.formTask.value)
     this.formTask.reset()
   }
-  addTag(value = '') { this.tags.push(this.formBuilder.control(value, Validators.required))
-  } }
+  addTag(value = '') {
+    this.tags.push(this.formBuilder.control(value, Validators.required))
+  }
+}
