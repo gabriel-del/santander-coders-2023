@@ -6,25 +6,40 @@ import {Task} from 'src/models/task.model'
   template: `
   <div>
   <h2>Log</h2>
-  <div *ngIf="tasks.length > 0">
-    <div *ngFor="let task of tasks">
-      {{ task.title }}
-
-    </div>
-  </div>
+  <table  *ngIf="tasks.length > 0">
+    <thead>
+      <tr><th>To Do</th><th>In Progress</th><th>Done</th><th>Data</th></tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.title }}</td>
+      <td>{{ task.description }}</td>
+      <td>{{ task.status }}</td>
+      <td>{{ task.date }}</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 `,
   styles: [`
-  .kanban-board { display: flex;  flex-direction: row; }
-  .column {
-    &:nth-child(2) {
-      margin: 0 8px;
-    } flex: 1; padding: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f0f0f0;
-    h2 { text-align: center; }}
-    `],
+table {
+  width: 100%;
+  border: 1px solid;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+tr:hover {background-color: #fafafa;}
+tr:nth-child(even) {background-color: #f2f2f2;}
+th {
+  background-color: #0d6efd;
+  color: white;
+}
+
+
+`]
 })
 export class Log {
   columns = [
