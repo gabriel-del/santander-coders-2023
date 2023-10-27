@@ -3,6 +3,7 @@ import antfu from '@antfu/eslint-config'
 export default antfu(
   {rules:
     {
+      'ts/consistent-type-imports': 'off',
       // 'no-console': 'off',
       // 'ts/space-infix-ops': 'off',
       // 'style/object-curly-spacing': ['error', 'never'],
