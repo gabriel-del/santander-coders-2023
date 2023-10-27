@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core'
 
 @Component({
   selector: 'app-task-filtro',
@@ -16,19 +16,16 @@ import { Component, EventEmitter, Output } from '@angular/core';
   <option value="finalizado">Finalizado</option>
 </select>
 `,
-  styles: [`.testes { 
+  styles: [`.testes {
     background: red;
 }`],
 })
 export class Filtro {
-  @Output() onChangeFiltro = new EventEmitter();
+  @Output() onChangeFiltro = new EventEmitter()
 
-  filtro: string = 'all';
-
-
+  filtro: string = 'all'
 
   handleSelect() {
     this.onChangeFiltro.emit(this.filtro)
   }
-
 }

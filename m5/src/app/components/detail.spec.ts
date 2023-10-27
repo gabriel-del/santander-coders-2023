@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { Detail } from './detail';
+import { Detail } from './detail'
 
-describe('TaskDetailComponent', () => {
-  let component: Detail;
-  let fixture: ComponentFixture<Detail>;
+describe('taskDetailComponent', () => {
+  let component: Detail
+  let fixture: ComponentFixture<Detail>
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [Detail]
-    });
-    fixture = TestBed.createComponent(Detail);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+      declarations: [Detail],
+    })
+    fixture = TestBed.createComponent(Detail)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

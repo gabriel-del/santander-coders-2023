@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Task } from 'src/models/task.model';
+import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { Task } from 'src/models/task.model'
 
 @Component({
   selector: 'app-task-detail',
@@ -22,12 +22,13 @@ import { Task } from 'src/models/task.model';
   </p>
   <p><strong>Status:</strong> {{ task.status }}</p>
 </div>
-`})
+`,
+})
 export class Detail {
-  @Input() task = new Task();
-  @Output() closeDetail = new EventEmitter();
+  @Input() task = new Task()
+  @Output() closeDetail = new EventEmitter()
 
   close() {
-    this.closeDetail.emit();
+    this.closeDetail.emit()
   }
 }

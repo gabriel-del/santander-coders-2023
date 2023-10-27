@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { TaskFiltroComponent } from './filtro';
+import { TaskFiltroComponent } from './filtro'
 
-describe('TaskFiltroComponent', () => {
-  let component: TaskFiltroComponent;
-  let fixture: ComponentFixture<TaskFiltroComponent>;
+describe('taskFiltroComponent', () => {
+  let component: TaskFiltroComponent
+  let fixture: ComponentFixture<TaskFiltroComponent>
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TaskFiltroComponent]
-    });
-    fixture = TestBed.createComponent(TaskFiltroComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+      declarations: [TaskFiltroComponent],
+    })
+    fixture = TestBed.createComponent(TaskFiltroComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

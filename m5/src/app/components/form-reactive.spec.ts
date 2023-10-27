@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { TaskFormReactiveComponent } from './form-reactive';
+import { TaskFormReactiveComponent } from './form-reactive'
 
-describe('TaskFormReactiveComponent', () => {
-  let component: TaskFormReactiveComponent;
-  let fixture: ComponentFixture<TaskFormReactiveComponent>;
+describe('taskFormReactiveComponent', () => {
+  let component: TaskFormReactiveComponent
+  let fixture: ComponentFixture<TaskFormReactiveComponent>
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TaskFormReactiveComponent]
-    });
-    fixture = TestBed.createComponent(TaskFormReactiveComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+      declarations: [TaskFormReactiveComponent],
+    })
+    fixture = TestBed.createComponent(TaskFormReactiveComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

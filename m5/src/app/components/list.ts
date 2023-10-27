@@ -1,12 +1,11 @@
 import {
   Component,
-  ElementRef,
   EventEmitter,
   Input,
-  Output,
   OnInit,
-} from '@angular/core';
-import { Task } from 'src/models/task.model';
+  Output,
+} from '@angular/core'
+import { Task } from 'src/models/task.model'
 
 @Component({
   selector: 'app-task-list',
@@ -44,8 +43,8 @@ import { Task } from 'src/models/task.model';
 `,
   styles: [`
   .kanban-board { display: flex;  flex-direction: row; }
-  .column { 
-    &:nth-child(2) { 
+  .column {
+    &:nth-child(2) {
       margin: 0 8px; } flex: 1; padding: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -56,33 +55,31 @@ import { Task } from 'src/models/task.model';
 }}`],
 })
 export class List implements OnInit {
-
   columns = [
     { name: 'To Do', id: 'toDo' },
     { name: 'In Progress', id: 'trabalhando' },
     { name: 'Done', id: 'finalizado' },
-  ];
+  ]
 
-  @Input() tasks: Task[] = [];
-  @Output() handleTask = new EventEmitter();
+  @Input() tasks: Task[] = []
+  @Output() handleTask = new EventEmitter()
 
-  tasksFiltradas: Task[] = [];
+  tasksFiltradas: Task[] = []
 
   ngOnInit() {
-    this.tasksFiltradas = this.tasks;
+    this.tasksFiltradas = this.tasks
   }
-  
 
   selectedTask(task: Task) {
-    this.handleTask.emit(task);
+    this.handleTask.emit(task)
   }
 
   handleFiltro(filtro: string) {
     if (filtro === 'all') {
-      this.tasksFiltradas = this.tasks;
-      return;
+      this.tasksFiltradas = this.tasks
+      return
     }
 
-    this.tasksFiltradas = this.tasks.filter((item) => item.status === filtro);
+    this.tasksFiltradas = this.tasks.filter(item => item.status === filtro)
   }
 }
