@@ -6,7 +6,12 @@ import {Task} from 'src/models/task.model'
   template: `
   <div>
   <h2>Log</h2>
-  <div *ngIf="tasks.length > 0"></div>
+  <div *ngIf="tasks.length > 0">
+    <div *ngFor="let task of tasks">
+      {{ task.title }}
+
+    </div>
+  </div>
 </div>
 `,
   styles: [`
