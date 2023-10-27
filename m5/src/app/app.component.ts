@@ -18,9 +18,7 @@ import type {Task} from 'src/models/task.model'
   </div>
 </div>
 `,
-  styles: [`
-  .container {
-  }`]
+  styles: [` `]
 })
 export class AppComponent {
   @ViewChild('myDiv') detailDiv!: ElementRef
@@ -36,12 +34,7 @@ export class AppComponent {
   onAddTask(task: Task) { this.listTask.push(task) }
   handleTask(task: Task) {
     this.selectedTask = task
-    setTimeout(() => {
-      this.detailDiv.nativeElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      })
-    }, 500)
+    setTimeout(() => this.detailDiv.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 500)
   }
   fecharDetalhes() { this.selectedTask = null }
 }

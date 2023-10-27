@@ -10,59 +10,22 @@ import {Task} from 'src/models/task.model'
 
   <form class="border p-3 mb-3" (ngSubmit)="submitTask(form)" #form="ngForm">
     <div class="form-group">
-      <label for="title">Título</label>
-      <input
-        id="title"
-        type="text"
-        [(ngModel)]="newTask.title"
-        name="title"
-        required
-        minlength="3"
-        #henrique="ngModel"
-        class="form-control"
-      />
+      <label >Título <input id="title" type="text" [(ngModel)]="newTask.title" name="title" required minlength="3" #henrique="ngModel" class="form-control"/></label>
     </div>
 
     <div class="form-group">
-      <label for="description">Descrição</label>
-      <input
-        id="description"
-        type="text"
-        [(ngModel)]="newTask.description"
-        name="description"
-        required
-        class="form-control"
-      />
-      <div *ngIf="form.controls['description'].invalid" class="text-danger">
-        Campo inválido.
-      </div>
+      <label>Descrição <input id="description" type="text" [(ngModel)]="newTask.description" name="description" required class="form-control"/></label>
+      <div *ngIf="form.controls['description'].invalid" class="text-danger"> Campo inválido. </div>
     </div>
 
     <div class="form-group">
-      <label for="date">Data de Vencimento</label>
-      <input
-        id="date"
-        type="date"
-        [(ngModel)]="newTask.date"
-        name="date"
-        required
-        pattern="^\d{4}-\d{2}-\d{2}$"
-        class="form-control"
-      />
-      <div *ngIf="form.controls['date'].invalid" class="text-danger">
-        Data inválida.
-      </div>
+      <label>Data de Vencimento <input id="date" type="date" [(ngModel)]="newTask.date" name="date" required pattern="^\d{4}-\d{2}-\d{2}$" class="form-control" /> </label>
+       <div *ngIf="form.controls['date'].invalid" class="text-danger"> Data inválida. </div>
     </div>
 
     <div class="form-group">
       <label for="status">Status</label>
-      <select
-        name="status"
-        id="status"
-        [(ngModel)]="newTask.status"
-        required
-        class="form-control"
-      >
+      <select name="status" id="status" [(ngModel)]="newTask.status" required class="form-control" >
         <option value="toDo">ToDo</option>
         <option value="trabalhando">Trabalhando</option>
         <option value="finalizado">Finalizado</option>
@@ -73,17 +36,18 @@ import {Task} from 'src/models/task.model'
   </form>
 </div>
 `,
-  styles: [`.form-group {
+  styles: [`
+  .form-group {
     margin-top: 8px;
-}`],
+}
+`],
 })
 export class Form {
   @Output() addTask = new EventEmitter()
   public newTask = new Task()
   submitTask(form: NgForm) {
     console.log('chamou')
-    if (!form.valid)
-      return
+    if (!form.valid) return
 
     console.log('chamou 02')
     this.addTask.emit(this.newTask)
