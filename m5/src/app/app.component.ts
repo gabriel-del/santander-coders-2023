@@ -27,8 +27,10 @@ import { Task } from 'src/models/task.model';
     </div>
   </div>
 </div>
-<style>
-  .blue {
+
+`,
+  styles: [`
+    .blue {
     color: blue;
 }
 
@@ -42,9 +44,7 @@ import { Task } from 'src/models/task.model';
 
 color-red { 
     color: red; 
-}
-</style>
-`})
+}`]})
 export class AppComponent {
   @ViewChild('myDiv') detailDiv!: ElementRef;
 
