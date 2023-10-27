@@ -55,7 +55,7 @@ import { Task } from 'src/models/task.model';
       text-align: center;
 }}`],
 })
-export class TaskListComponent implements OnInit {
+export class List implements OnInit {
 
   columns = [
     { name: 'To Do', id: 'toDo' },

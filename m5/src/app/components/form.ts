@@ -77,7 +77,7 @@ import { Task } from 'src/models/task.model';
     margin-top: 8px;
 }`],
 })
-export class TaskFormComponent {
+export class Form {
   @Output() addTask = new EventEmitter();
 
   public newTask = new Task();

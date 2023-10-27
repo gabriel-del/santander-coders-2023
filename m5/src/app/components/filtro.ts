@@ -20,7 +20,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
     background: red;
 }`],
 })
-export class TaskFiltroComponent {
+export class Filtro {
   @Output() onChangeFiltro = new EventEmitter();
 
   filtro: string = 'all';

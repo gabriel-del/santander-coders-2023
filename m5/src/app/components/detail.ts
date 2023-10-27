@@ -23,7 +23,7 @@ import { Task } from 'src/models/task.model';
   <p><strong>Status:</strong> {{ task.status }}</p>
 </div>
 `})
-export class TaskDetailComponent {
+export class Detail {
   @Input() task = new Task();
   @Output() closeDetail = new EventEmitter();
 

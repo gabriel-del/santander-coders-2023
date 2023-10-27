@@ -114,7 +114,7 @@ import { Task } from 'src/models/task.model';
     margin-top: 8px;
 }`],
 })
-export class TaskFormReactiveComponent implements OnInit {
+export class FormReactive implements OnInit {
   @Input() task: Task | null = {
     date: '27/05/1995',
     description: 'dasdasdasd',
