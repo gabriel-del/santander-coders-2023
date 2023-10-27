@@ -8,7 +8,7 @@ import type {Task} from 'src/models/task.model'
   <div class="container pb-5">
   <app-task-form-reactive (addTask)="onAddTask($event)"></app-task-form-reactive>
   <app-task-list  [tasks]="listTask" (handleTask)="handleTask($event)"></app-task-list>
-  <app-log [tasks]="listTask" (handleTask)="handleTask($event)"></app-log>
+  <app-log [tasks]="selectedLog" ></app-log>
   <div #myDiv>
     <div *ngIf="selectedTask">
       <app-task-detail [task]="selectedTask" (closeDetail)="fecharDetalhes()"></app-task-detail>
@@ -29,10 +29,12 @@ export class AppComponent {
   ]
   get toDoStatus() {return this.listTask.filter(item => item.status === 'toDo')}
   selectedTask: Task | null = null
+  selectedLog: Task[] = []
   ngOnInit() {}
   onAddTask(task: Task) {this.listTask.push(task)}
   handleTask(task: Task) {
     this.selectedTask = task
+    this.selectedLog.push(task)
     setTimeout(() => this.detailDiv.nativeElement.scrollIntoView({behavior: 'smooth', block: 'start'}), 500)
   }
   fecharDetalhes() {this.selectedTask = null}

@@ -5,24 +5,8 @@ import {Task} from 'src/models/task.model'
   selector: 'app-log',
   template: `
   <div>
-  <h2>Tarefas</h2>
-  <app-task-filtro (onChangeFiltro)="handleFiltro($event)"></app-task-filtro>
-  <div class="kanban-board mt-3">
-    <div class="column" *ngFor="let column of columns">
-      <h2>{{ column.name }}</h2>
-      <ng-container *ngFor="let item of tasksFiltradas">
-        <ng-container *ngIf="item.status === column.id">
-          <div class="card px-4 pt-2 mb-2">
-            <h4>{{ item.title }}</h4>
-            <p>{{ item.description }}</p>
-            <div>
-              <button class="btn btn-light w-100" (click)="selectedTask(item)"> Editar </button>
-              <button class="btn btn-info w-100 mt-2 mb-3" (click)="selectedTask(item)" >Ver detalhes</button></div>
-          </div>
-        </ng-container>
-      </ng-container>
-    </div>
-  </div>
+  <h2>Log</h2>
+  <div *ngIf="tasks.length > 0"></div>
 </div>
 `,
   styles: [`
