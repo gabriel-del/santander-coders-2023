@@ -6,7 +6,8 @@
     "todolist": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": { "style": "scss" }
+        "@schematics/angular:component": { "style": "scss",  "inlineTemplate": true
+      }
       },
       "root": "",
       "sourceRoot": "src",

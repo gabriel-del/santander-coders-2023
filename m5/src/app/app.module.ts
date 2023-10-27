@@ -12,7 +12,8 @@ import {FormReactive} from './components/form-reactive'
 
 import {DateGreaterThanTodayDirective} from './directives/date-greater-than-today.directive'
 import {CurrencyFormatPipe} from './pipes/currency-format.pipe'
-import {DateMaskDirective} from './directives/date-mask.directive'
+import {DateMaskDirective} from './directives/date-mask.directive';
+import { Log } from './components/log'
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {DateMaskDirective} from './directives/date-mask.directive'
     Filtro,
     FormReactive,
     DateMaskDirective,
+    Log,
   ],
   imports: [
     BrowserModule,
