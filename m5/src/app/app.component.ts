@@ -13,9 +13,6 @@ import type {Task} from 'src/models/task.model'
     <div *ngIf="selectedTask">
       <app-task-detail [task]="selectedTask" (closeDetail)="fecharDetalhes()"></app-task-detail>
     </div>
-    <div *ngFor="let items of toDoStatus">
-      {{items.title}}
-    </div>
   </div>
 </div>
 `,
@@ -27,7 +24,6 @@ export class AppComponent {
     {date: new Date(), description: 'description01', status: 'trabalhando', title: 'title02'},
     {date: new Date(), description: 'description01', status: 'finalizado', title: 'title03'},
   ]
-  get toDoStatus() {return this.listTask.filter(item => item.status === 'toDo')}
   selectedTask: Task | null = null
   selectedLog: Task[] = []
   ngOnInit() {}
