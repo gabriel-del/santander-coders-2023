@@ -10,7 +10,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "deploy:ghdocs": "ng build --configuration=production --output-path dist --base-href /santander-coders-2023/"
   },
   "dependencies": {
     "@angular/animations": "^16.2.0",
