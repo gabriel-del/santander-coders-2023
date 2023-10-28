@@ -1,12 +1,12 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core'
+import {Component, Input} from '@angular/core'
 import {Task} from 'src/models/task.model'
 
 @Component({
   selector: 'app-log',
   template: `
-  <div>
+  <div *ngIf="tasks.length > 0">
   <h2>Log</h2>
-  <table  *ngIf="tasks.length > 0">
+  <table>
     <thead>
       <tr><th>To Do</th><th>In Progress</th><th>Done</th><th>Data</th></tr>
     </thead>
